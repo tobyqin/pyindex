@@ -5,8 +5,8 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pyindex.settings')
-    os.environ.setdefault('PyIndex.DEBUG', 'True')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
+    os.environ.setdefault('app.debug', 'True')
 
     try:
         from django.core.management import execute_from_command_line

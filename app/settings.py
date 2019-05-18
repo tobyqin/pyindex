@@ -7,12 +7,23 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 """
 
 import os
+from datetime import datetime
+
+SITE_INFO = {
+    'title': 'Awesome Collection',
+    'description': 'My collection of awesome sites.',
+    'author': 'Toby Qin',
+    'keywords': 'collections, sites, homepage',
+    'footer': {
+        'copyright': '&copy; 2018 - {}'.format(datetime.now().year),
+        'more_info': '</a> powered by <a href="https://github.com/tobyqin/pyindex" '
+                     'target="_blank"><strong>PyIndex</strong></a>'
+    }
+}
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'please update me to hard guess string'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('PyIndex.DEBUG', False)
+DEBUG = os.environ.get('app.debug', False)
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -24,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sites'
+    'pyindex'
 ]
 
 MIDDLEWARE = [
@@ -37,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pyindex.urls'
+ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
     {
@@ -55,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pyindex.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
