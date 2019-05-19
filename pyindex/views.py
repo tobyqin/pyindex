@@ -3,7 +3,7 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from app.settings import SITE_INFO
+from pyindex.settings import PYINDEX_CONFIG
 
 
 def index(request):
@@ -11,4 +11,4 @@ def index(request):
 
 
 def site_info(request):
-    return HttpResponse(json.dumps(SITE_INFO))
+    return HttpResponse(json.dumps(PYINDEX_CONFIG['site']))

@@ -7,19 +7,10 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 """
 
 import os
-from datetime import datetime
 
-SITE_INFO = {
-    'title': 'Awesome Collection',
-    'description': 'My collection of awesome sites.',
-    'author': 'Toby Qin',
-    'keywords': 'collections, sites, homepage',
-    'footer': {
-        'copyright': '&copy; 2018 - {}'.format(datetime.now().year),
-        'more_info': '</a> powered by <a href="https://github.com/tobyqin/pyindex" '
-                     'target="_blank"><strong>PyIndex</strong></a>'
-    }
-}
+# from datetime import datetime
+# PYINDEX_CONFIG = {}
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'please update me to hard guess string'
