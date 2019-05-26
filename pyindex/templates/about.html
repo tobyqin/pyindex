@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block main-menu %}
+    <li>
+        <a href="/">
+            <i class="fa-home"></i>
+            <span class="title">Home</span>
+        </a>
+    </li>
+    <li>
+        <a href="/about">
+            <i class="fa-info-circle"></i>
+            <span class="title">About</span>
+        </a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="main-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <h4 class="text-gray" style="font-weight:bold;">About This Website</h4>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <blockquote>
+                                    <p>
+                                        Sometime you may ask many people just in order to get a simple link.
+                                        <br><br>
+                                        So I build this site to collect all links that I access frequently.
+                                        <br><br>
+                                        If you want to contribute or read the code, please go to <a
+                                            href="https://github.com/tobyqin/pyindex">here</a>,
+                                        it is written by Django.
+                                        <br><br>
+                                        Have question? Please find me on github.
+                                    </p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

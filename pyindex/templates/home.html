@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block main-menu %}
+
+    {% for cat in cats %}
+
+        <li>
+            <a href="#{{ cat.id }}" class="smooth">
+                <i class="{{ cat.icon_class }}"></i>
+                <span class="title">{{ cat.name }}</span>
+            </a>
+            {% if cat.children %}
+                <ul>
+                    {% for subCat in cat.children %}
+                        <li>
+                            <a href="#{{ subCat.id }}" class="smooth">
+                                <span class="title">{{ subCat.name }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+    <p><br></p>
+    <li>
+        <a href="/about">
+            <i class="fa-info-circle"></i>
+            <span class="title">About</span>
+        </a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div id="search" class="s-search">
+        <form action="https://www.google.com/search" target="_blank" id="super-search-fm">
+            <input type="text" name="q" id="search-text" placeholder="Search by Google"
+                   style="outline:0; margin-bottom:1em" autocomplete="off">
+            <button type="submit" style="background-color:#2c2e2f;">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+    {% for cat in flatLinks %}
+        {% if cat.links %}
+            <div style="margin-top:2em">
+                <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;"
+                                         id="{{ cat.id }}"></i>{{ cat.name }}
+                </h4>
+                <div class="row">
+                    {% for link in cat.links %}
+                        <div class="col-sm-3">
+                            <div class="xe-widget xe-conversations box2 label-info" onclick="openLink('{{ link.url }}')"
+                                 data-toggle="tooltip" data-placement="bottom" title="{{ link.url }}"
+                                 data-original-title="{{ link.url }}">
+                                <div class="xe-comment-entry">
+                                    <a class="xe-user-img">
+                                        <img src="/static/images/link.jpg" class="img-circle" width="40">
+                                    </a>
+                                    <div class="xe-comment">
+                                        <a href="#" class="xe-user-name overflowClip_1">
+                                            <strong>{{ link.name }}</strong>
+                                        </a>
+                                        <p class="overflowClip_2">{{ link.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <script>
+        function openLink(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+    </script>
+{% endblock %}

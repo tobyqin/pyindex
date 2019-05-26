@@ -106,3 +106,4 @@ venv.bak/
 *.sqlite3
 *.sqlite
 *.db
+media/
