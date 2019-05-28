@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block main-menu %}
-
     {% for cat in cats %}
         <li>
             {% if cat.children %}
-                <a href="#{{ cat.id }}">
-                    <i class="{{ cat.icon_class }}"></i>
-                    <span class="title">{{ cat.name }}</span>
-                </a>
+                {% if cat.links %}
+                    <a href="#{{ cat.id }}">
+                {% else %}<a>{% endif %}
+            <i class="{{ cat.icon_class }}"></i>
+            <span class="title">{{ cat.name }}</span>
+            </a>
                 <ul>
                     {% for subCat in cat.children %}
                         <li>
